@@ -1,5 +1,5 @@
 import XCTest
-@testable import OAuthTwitter
+@testable import OAuthTwi
 
 final class OAuthTwitterTests: XCTestCase {
     func testExample() throws {

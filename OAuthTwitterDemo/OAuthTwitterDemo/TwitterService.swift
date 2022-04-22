@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import OAuthTwitter
+import OAuthTwi
 import Combine
 
-final class TwitterManager: ObservableObject {
+final class TwitterService: ObservableObject {
     @Published var timeline: [Response.Status] = []
     private var task = Set<AnyCancellable>()
     

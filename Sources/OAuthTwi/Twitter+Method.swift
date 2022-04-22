@@ -127,7 +127,7 @@ final public class OAuthPublisher {
             id: String,
             includeEntities: Bool = false
         ) -> AnyPublisher<Response.Status, AFError> {
-            publish(OAuthTwitter.Favorites.Create(id: id, includeEntities: includeEntities))
+            publish(OAuthTwi.Favorites.Create(id: id, includeEntities: includeEntities))
         }
         
         /// Unfavorites (un-likes) the Tweet specified in the ID parameter as the authenticating user. Returns the un-liked Tweet when successful.
@@ -135,7 +135,7 @@ final public class OAuthPublisher {
             id: String,
             includeEntities: Bool = false
         ) -> AnyPublisher<Response.Status, AFError> {
-            publish(OAuthTwitter.Favorites.Destroy(id: id, includeEntities: includeEntities))
+            publish(OAuthTwi.Favorites.Destroy(id: id, includeEntities: includeEntities))
         }
     }
     
@@ -145,7 +145,7 @@ final public class OAuthPublisher {
             context: String,
             count: Int = 15
         ) -> AnyPublisher<Response.Search, AFError> {
-            publish(OAuthTwitter.Search(context: context, count: count))
+            publish(OAuthTwi.Search(context: context, count: count))
         }
     }
     
@@ -157,7 +157,7 @@ final public class OAuthPublisher {
             includeEntities: Bool = false,
             skipStatus: Bool = false
         ) -> AnyPublisher<Response.User, AFError> {
-            publish(OAuthTwitter.Blocks.Create(screenName: screenName, userId: userId, includeEntities: includeEntities, skipStatus: skipStatus) )
+            publish(OAuthTwi.Blocks.Create(screenName: screenName, userId: userId, includeEntities: includeEntities, skipStatus: skipStatus) )
         }
     }
     

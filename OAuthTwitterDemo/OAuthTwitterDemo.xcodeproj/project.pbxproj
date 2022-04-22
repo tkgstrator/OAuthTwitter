@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106002FC2812633000EBE8A6 /* OAuthTwi in Frameworks */ = {isa = PBXBuildFile; productRef = 106002FB2812633000EBE8A6 /* OAuthTwi */; };
 		10AC28B12771529D00C1A9F7 /* OAuthTwitterDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28B02771529D00C1A9F7 /* OAuthTwitterDemoApp.swift */; };
 		10AC28B32771529D00C1A9F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28B22771529D00C1A9F7 /* ContentView.swift */; };
 		10AC28B52771529F00C1A9F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10AC28B42771529F00C1A9F7 /* Assets.xcassets */; };
@@ -14,9 +15,11 @@
 		10AC28C2277152A000C1A9F7 /* OAuthTwitterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28C1277152A000C1A9F7 /* OAuthTwitterDemoTests.swift */; };
 		10AC28CC277152A000C1A9F7 /* OAuthTwitterDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28CB277152A000C1A9F7 /* OAuthTwitterDemoUITests.swift */; };
 		10AC28CE277152A000C1A9F7 /* OAuthTwitterDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28CD277152A000C1A9F7 /* OAuthTwitterDemoUITestsLaunchTests.swift */; };
-		10AC28DD277152CA00C1A9F7 /* OAuthTwitter in Frameworks */ = {isa = PBXBuildFile; productRef = 10AC28DC277152CA00C1A9F7 /* OAuthTwitter */; };
 		10AC28DF277152DD00C1A9F7 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28DE277152DD00C1A9F7 /* Secrets.swift */; };
-		10AC28E127716CAC00C1A9F7 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28E027716CAC00C1A9F7 /* TwitterManager.swift */; };
+		10AC28E127716CAC00C1A9F7 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC28E027716CAC00C1A9F7 /* TwitterService.swift */; };
+		10F216BE2812A76100B6004B /* OAuth1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F216BD2812A76100B6004B /* OAuth1View.swift */; };
+		10F216C02812A76B00B6004B /* OAuth2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F216BF2812A76B00B6004B /* OAuth2View.swift */; };
+		10F216C32812B5FC00B6004B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 10F216C22812B5FC00B6004B /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		107586D8281133C500549193 /* OAuthTwitter */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OAuthTwitter; path = ..; sourceTree = "<group>"; };
 		10AC28AD2771529D00C1A9F7 /* OAuthTwitterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthTwitterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10AC28B02771529D00C1A9F7 /* OAuthTwitterDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTwitterDemoApp.swift; sourceTree = "<group>"; };
 		10AC28B22771529D00C1A9F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,9 +51,10 @@
 		10AC28C7277152A000C1A9F7 /* OAuthTwitterDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthTwitterDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10AC28CB277152A000C1A9F7 /* OAuthTwitterDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTwitterDemoUITests.swift; sourceTree = "<group>"; };
 		10AC28CD277152A000C1A9F7 /* OAuthTwitterDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTwitterDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		10AC28DA277152C100C1A9F7 /* OAuthTwitter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OAuthTwitter; path = ..; sourceTree = "<group>"; };
 		10AC28DE277152DD00C1A9F7 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		10AC28E027716CAC00C1A9F7 /* TwitterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
+		10AC28E027716CAC00C1A9F7 /* TwitterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
+		10F216BD2812A76100B6004B /* OAuth1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth1View.swift; sourceTree = "<group>"; };
+		10F216BF2812A76B00B6004B /* OAuth2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10AC28DD277152CA00C1A9F7 /* OAuthTwitter in Frameworks */,
+				106002FC2812633000EBE8A6 /* OAuthTwi in Frameworks */,
+				10F216C32812B5FC00B6004B /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,10 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		107586D7281133C500549193 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				107586D8281133C500549193 /* OAuthTwitter */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		10AC28A42771529D00C1A9F7 = {
 			isa = PBXGroup;
 			children = (
-				10AC28DA277152C100C1A9F7 /* OAuthTwitter */,
+				107586D7281133C500549193 /* Packages */,
 				10AC28AF2771529D00C1A9F7 /* OAuthTwitterDemo */,
 				10AC28C0277152A000C1A9F7 /* OAuthTwitterDemoTests */,
 				10AC28CA277152A000C1A9F7 /* OAuthTwitterDemoUITests */,
@@ -103,9 +117,10 @@
 		10AC28AF2771529D00C1A9F7 /* OAuthTwitterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				10F216BA2812A73B00B6004B /* Views */,
 				10AC28B02771529D00C1A9F7 /* OAuthTwitterDemoApp.swift */,
 				10AC28B22771529D00C1A9F7 /* ContentView.swift */,
-				10AC28E027716CAC00C1A9F7 /* TwitterManager.swift */,
+				10AC28E027716CAC00C1A9F7 /* TwitterService.swift */,
 				10AC28DE277152DD00C1A9F7 /* Secrets.swift */,
 				10AC28B42771529F00C1A9F7 /* Assets.xcassets */,
 				10AC28B62771529F00C1A9F7 /* Preview Content */,
@@ -145,6 +160,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		10F216BA2812A73B00B6004B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10F216BD2812A76100B6004B /* OAuth1View.swift */,
+				10F216BF2812A76B00B6004B /* OAuth2View.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,7 +186,8 @@
 			);
 			name = OAuthTwitterDemo;
 			packageProductDependencies = (
-				10AC28DC277152CA00C1A9F7 /* OAuthTwitter */,
+				106002FB2812633000EBE8A6 /* OAuthTwi */,
+				10F216C22812B5FC00B6004B /* FirebaseAuth */,
 			);
 			productName = OAuthTwitterDemo;
 			productReference = 10AC28AD2771529D00C1A9F7 /* OAuthTwitterDemo.app */;
@@ -213,6 +238,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
+				ORGANIZATIONNAME = "Magi Corporation";
 				TargetAttributes = {
 					10AC28AC2771529D00C1A9F7 = {
 						CreatedOnToolsVersion = 13.1;
@@ -236,6 +262,9 @@
 				Base,
 			);
 			mainGroup = 10AC28A42771529D00C1A9F7;
+			packageReferences = (
+				10F216C12812B5FC00B6004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 10AC28AE2771529D00C1A9F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,7 +308,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				10AC28B32771529D00C1A9F7 /* ContentView.swift in Sources */,
-				10AC28E127716CAC00C1A9F7 /* TwitterManager.swift in Sources */,
+				10AC28E127716CAC00C1A9F7 /* TwitterService.swift in Sources */,
+				10F216BE2812A76100B6004B /* OAuth1View.swift in Sources */,
+				10F216C02812A76B00B6004B /* OAuth2View.swift in Sources */,
 				10AC28DF277152DD00C1A9F7 /* Secrets.swift in Sources */,
 				10AC28B12771529D00C1A9F7 /* OAuthTwitterDemoApp.swift in Sources */,
 			);
@@ -629,10 +660,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		10F216C12812B5FC00B6004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		10AC28DC277152CA00C1A9F7 /* OAuthTwitter */ = {
+		106002FB2812633000EBE8A6 /* OAuthTwi */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = OAuthTwitter;
+			productName = OAuthTwi;
+		};
+		10F216C22812B5FC00B6004B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F216C12812B5FC00B6004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
