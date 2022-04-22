@@ -50,7 +50,6 @@ open class Twitter: RequestInterceptor {
     
     public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
-        print(request.url)
         let queryString: [String: Any]? = urlRequest.url?.query?.asDictionary()
         
         // Merge parameters

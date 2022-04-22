@@ -12,7 +12,7 @@ struct OAuthTwitterDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(TwitterManager())
+                .environmentObject(TwitterService())
         }
     }
 }
