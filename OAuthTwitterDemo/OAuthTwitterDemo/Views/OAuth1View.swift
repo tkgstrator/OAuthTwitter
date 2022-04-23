@@ -2,7 +2,7 @@
 //  OAuth1View.swift
 //  OAuthTwitterDemo
 //
-//  Created by Shota Morimoto on 2022/04/22.
+//  Created by devonly on 2022/04/22.
 //  Copyright © 2022 Magi Corporation. All rights reserved.
 //
 

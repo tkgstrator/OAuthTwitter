@@ -11,128 +11,200 @@ import Foundation
 
 public class Response {
     public struct Search: Codable {
-        public let statuses: [Response.Status]
-//        let searchMetadata: Metadata
+        public var statuses: [Response.Status]
+//        var searchMetadata: Metadata
     }
     
     public struct Metadata: Codable {
-        let completedIn, maxID: Double
-        let maxIDStr, nextResults, query, refreshURL: String
-        let count, sinceID: Int
-        let sinceIDStr: String
+        var completedIn, maxID: Double
+        var maxIDStr, nextResults, query, refreshURL: String
+        var count, sinceID: Int
+        var sinceIDStr: String
     }
     
     public struct Status: Codable, Identifiable {
-        public let createdAt: String
-        public let id: Double
-        public let idStr: String
-        public let text: String
-        public let truncated: Bool
-//        public let entities: StatusEntities
-//        public let metadata: Metadata
-        public let source: String
-        public let inReplyToStatusId: Double?
-        public let inReplyToStatusIdStr: String?
-        public let inReplyToUserId: Double?
-        public let inReplyToUserIdStr: String?
-        public let inReplyToScreenName: String?
-        public let user: User
-//        public let geo: JSONNull?
-//        public let coordinates: JSONNull?
-//        public let place: JSONNull?
-//        public let contributors: JSONNull?
-        public let isQuoteStatus: Bool
+        public init(
+            createdAt: String,
+            id: Double,
+            idStr: String,
+            text: String,
+            entities: Response.Entity,
+            user: Response.User,
+            isQuoteStatus: Bool,
+            retweetCount: Int,
+            favoriteCount: Int,
+            favorited: Bool,
+            retweeted: Bool,
+            extendedEntities: Response.ExtendedEntity? = nil,
+            possiblySensitive: Bool? = nil
+        ) {
+            self.createdAt = createdAt
+            self.id = id
+            self.idStr = idStr
+            self.text = text
+            self.entities = entities
+            self.user = user
+            self.isQuoteStatus = isQuoteStatus
+            self.retweetCount = retweetCount
+            self.favoriteCount = favoriteCount
+            self.favorited = favorited
+            self.retweeted = retweeted
+            self.extendedEntities = extendedEntities
+            self.possiblySensitive = possiblySensitive
+        }
+
+        public var createdAt: String
+        public var id: Double
+        public var idStr: String
+        public var text: String
+//        public var truncated: Bool
+        public var entities: Response.Entity
+//        public var metadata: Metadata
+//        public var source: String
+//        public var inReplyToStatusId: Double?
+//        public var inReplyToStatusIdStr: String?
+//        public var inReplyToUserId: Double?
+//        public var inReplyToUserIdStr: String?
+//        public var inReplyToScreenName: String?
+        public var user: User
+//        public var geo: JSONNull?
+//        public var coordinates: JSONNull?
+//        public var place: JSONNull?
+//        public var contributors: JSONNull?
+        public var isQuoteStatus: Bool
         public var retweetCount: Int
         public var favoriteCount: Int
         public var favorited: Bool
         public var retweeted: Bool
-        public let lang: String
-        public let extendedEntities: ExtendedEntity?
-//        public let retweetedStatus: RetweetedStatus?
-        public let possiblySensitive: Bool?
+//        public var lang: String
+        public var extendedEntities: ExtendedEntity?
+//        public var retweetedStatus: RetweetedStatus?
+        public var possiblySensitive: Bool?
     }
     
     // MARK: - User
     public struct User: Codable, Identifiable {
-        public let id: Double
-        public let idStr: String
-        public let name: String
-        public let screenName: String
-        public let location: String
-        public let description: String?
-//        public let userDescription: String?
-        public let url: String?
-        public let entities: Entity
-        public let protected: Bool
-        public let followersCount: Int
-        public let friendsCount: Int
-        public let listedCount: Int
-        public let createdAt: String
-        public let favouritesCount: Int
-//        public let utcOffset: JSONNull?
-//        public let timeZone: JSONNull?
-        public let geoEnabled: Bool
-        public let verified: Bool
-        public let statusesCount: Int
-//        public let lang: JSONNull?
-        public let contributorsEnabled: Bool
-        public let isTranslator: Bool
-        public let isTranslationEnabled: Bool
-        public let profileBackgroundColor: String
-        public let profileBackgroundImageUrl: String?
-        public let profileBackgroundImageUrlHttps: String?
-        public let profileBackgroundTile: Bool
-        public let profileImageUrl: String
-        public let profileImageUrlHttps: String
-        public let profileBannerUrl: String?
-        public let profileLinkColor: String
-        public let profileSidebarBorderColor: String
-        public let profileSidebarFillColor: String
-        public let profileTextColor: String
-        public let profileUseBackgroundImage: Bool
-        public let hasExtendedProfile: Bool
-        public let defaultProfile: Bool
-        public let defaultProfileImage: Bool
-        public let following: Bool
-        public let followRequestSent: Bool
-        public let notifications: Bool
-        public let translatorType: String
-//        public let withheldInCountries: [JSONAny]
+        public init(
+            id: Double,
+            idStr: String,
+            name: String,
+            screenName: String,
+            location: String,
+            description: String? = nil,
+            protected: Bool,
+            followersCount: Int,
+            friendsCount: Int,
+            listedCount: Int,
+            favouritesCount: Int,
+            verified: Bool,
+            statusesCount: Int,
+            profileBackgroundImageUrlHttps: String? = nil,
+            profileImageUrlHttps: String,
+            following: Bool,
+            followRequestSent: Bool
+        ) {
+            self.id = id
+            self.idStr = idStr
+            self.name = name
+            self.screenName = screenName
+            self.location = location
+            self.description = description
+            self.protected = protected
+            self.followersCount = followersCount
+            self.friendsCount = friendsCount
+            self.listedCount = listedCount
+            self.favouritesCount = favouritesCount
+            self.verified = verified
+            self.statusesCount = statusesCount
+            self.profileBackgroundImageUrlHttps = profileBackgroundImageUrlHttps
+            self.profileImageUrlHttps = profileImageUrlHttps
+            self.following = following
+            self.followRequestSent = followRequestSent
+        }
+
+        public var id: Double
+        public var idStr: String
+        public var name: String
+        public var screenName: String
+        public var location: String
+        public var description: String?
+//        public var userDescription: String?
+//        public var url: String?
+//        public var entities: Entity
+        public var protected: Bool
+        public var followersCount: Int
+        public var friendsCount: Int
+        public var listedCount: Int
+//        public var createdAt: String
+        public var favouritesCount: Int
+//        public var utcOffset: JSONNull?
+//        public var timeZone: JSONNull?
+//        public var geoEnabled: Bool
+        public var verified: Bool
+        public var statusesCount: Int
+//        public var lang: JSONNull?
+//        public var contributorsEnabled: Bool
+//        public var isTranslator: Bool
+//        public var isTranslationEnabled: Bool
+//        public var profileBackgroundColor: String
+//        public var profileBackgroundImageUrl: String?
+        public var profileBackgroundImageUrlHttps: String?
+//        public var profileBackgroundTile: Bool
+//        public var profileImageUrl: String
+        public var profileImageUrlHttps: String
+//        public var profileBannerUrl: String?
+//        public var profileLinkColor: String
+//        public var profileSidebarBorderColor: String
+//        public var profileSidebarFillColor: String
+//        public var profileTextColor: String
+//        public var profileUseBackgroundImage: Bool
+//        public var hasExtendedProfile: Bool
+//        public var defaultProfile: Bool
+//        public var defaultProfileImage: Bool
+        public var following: Bool
+        public var followRequestSent: Bool
+//        public var notifications: Bool
+//        public var translatorType: String
+//        public var withheldInCountries: [JSONAny]
     }
     
     public struct Entity: Codable {
-//        public let hashtags: [JSONAny]
-//        public let symbols: [JSONAny]
-//        public let userMentions: [UserMention]
-//        public let urls: [JSONAny]
-        public let media: [Media]?
+        public init(media: [Response.Media]? = nil) {
+            self.media = media
+        }
+
+//        public var hashtags: [JSONAny]
+//        public var symbols: [JSONAny]
+//        public var userMentions: [UserMention]
+//        public var urls: [JSONAny]
+        public var media: [Media]?
     }
     
     public struct ExtendedEntity: Codable {
-//        public let hashtags: [JSONAny]
-//        public let symbols: [JSONAny]
-//        public let userMentions: [UserMention]
-//        public let urls: [JSONAny]
-        public let media: [Media]
+//        public var hashtags: [JSONAny]
+//        public var symbols: [JSONAny]
+//        public var userMentions: [UserMention]
+//        public var urls: [JSONAny]
+        public var media: [Media]
     }
     
     public struct Media: Codable, Identifiable {
-        public let id: Double
-        public let idStr: String
-        public let indices: [Int]
-        public let mediaUrl: String
-        public let mediaUrlHttps: String
-        public let url: String
-        public let displayUrl: String
-        public let expandedUrl: String
-        public let type: MediaType
-        public let videoInfo: VideoInfo?
-//        public let sizes: Sizes
+        public var id: Double
+        public var idStr: String
+        public var indices: [Int]
+        public var mediaUrl: String
+        public var mediaUrlHttps: String
+        public var url: String
+        public var displayUrl: String
+        public var expandedUrl: String
+        public var type: MediaType
+        public var videoInfo: VideoInfo?
+//        public var sizes: Sizes
     }
     
     public struct VideoInfo: Codable {
-        public let aspectRatio: [Int]
-        public let variants: [Variant]
+        public var aspectRatio: [Int]
+        public var variants: [Variant]
     }
     
     public enum MediaType: String, CaseIterable, Codable {
@@ -147,8 +219,8 @@ public class Response {
     }
     
     public struct Variant: Codable {
-        public let bitrate: Int?
-        public let contentType: ContentType
-        public let url: String
+        public var bitrate: Int?
+        public var contentType: ContentType
+        public var url: String
     }
 }
