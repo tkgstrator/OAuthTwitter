@@ -10,45 +10,43 @@ import CryptoKit
 import Alamofire
 import Combine
 
-open class Twitter: RequestInterceptor {
-    private let consumerKey: String
-    private let consumerKeySecret: String
-    private let accessToken: String
-    private let accessTokenSecret: String
-    
+public class TWSession: RequestInterceptor {
+    private var consumerKey: String?
+    private var consumerKeySecret: String?
+    private var accessToken: String?
+    private var accessTokenSecret: String?
+
+    public static let session: TWSession = TWSession()
+
+    internal init() {}
+
     internal let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
-    
-    public init(
-        consumerKey: String,
-        consumerKeySecret: String,
-        accessToken: String,
-        accssTokenSecret: String
-    ) {
+
+    public func configure(consumerKey: String, consumerKeySecret: String, accessToken: String, accessTokenSecret: String) {
         self.consumerKey = consumerKey
         self.consumerKeySecret = consumerKeySecret
         self.accessToken = accessToken
-        self.accessTokenSecret = accssTokenSecret
+        self.accessTokenSecret = accessTokenSecret
     }
-    
-    public convenience init(
-        consumerKey: String,
-        consumerKeySecret: String,
-        accessToken: String?,
-        accssTokenSecret: String?
-    ) {
-        self.init(
-            consumerKey: consumerKey,
-            consumerKeySecret: consumerKeySecret,
-            accessToken: accessToken ?? "",
-            accssTokenSecret: accssTokenSecret ?? ""
-        )
+
+    public func configure(consumerKey: String, consumerKeySecret: String) {
+        self.consumerKey = consumerKey
+        self.consumerKeySecret = consumerKeySecret
     }
     
     public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        guard let consumerKey = consumerKey,
+              let consumerKeySecret = consumerKeySecret,
+              let accessToken = accessToken,
+              let accessTokenSecret = accessTokenSecret
+        else {
+            completion(.failure(AFError.sessionDeinitialized))
+            return
+        }
         var request = urlRequest
         let queryString: [String: Any]? = urlRequest.url?.query?.asDictionary()
         

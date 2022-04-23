@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import OAuthTwitterDemo
+@testable import OAuthTwiDemo
 
 class OAuthTwitterDemoTests: XCTestCase {
 
